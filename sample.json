@@ -1,0 +1,47 @@
+{
+	"directory": "~/Downloads",
+	"options": {
+		"directories":    false,
+		"subdirectories": false,
+		"hidden":         false
+	},
+	"rules": [
+		{
+			"description": "Discover statements",
+			"conditions": [
+				"fileName matches ^Discover-Statement-(\\d{4})(\\d{2})(\\d{2})-\\d{4}$",
+				"extension is pdf",
+				"sourceURL contains card.discover.com",
+				"sourceURL contains statements"
+			],
+			"actions": [
+				"moveTo ~/Documents/Financial/Discover/Statements",
+				"renameToMatches $1:$2"
+			]
+		}, {
+			"description": "E-Trade statements",
+			"conditions": [
+				"fileName matches ^Brokerage Statement - XXXX\\d{4} - (\\d{4})(\\d{2})$",
+				"extension is pdf",
+				"sourceURL contains edoc.etrade.com",
+				"sourceURL contains docType=stmt"
+			],
+			"actions": [
+				"moveTo ~/Documents/Financial/E-Trade/Statements",
+				"renameToMatches $1:$2"
+			]
+		}, {
+			"description": "E-Trade trade confirmations",
+			"conditions": [
+				"fileName matches ^ETRADE Brokerage Trade Confirmation - XXXX\\d{4} - (\\d{4})(\\d{2})(\\d{2})$",
+				"extension is pdf",
+				"sourceURL contains edoc.etrade.com",
+				"sourceURL contains docType=cnf"
+			],
+			"actions": [
+				"moveTo ~/Documents/Financial/E-Trade/Trade Confirmations",
+				"renameToMatches $1:$2:$3"
+			]
+		}
+	]
+}
